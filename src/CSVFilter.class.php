@@ -13,10 +13,19 @@ class CSVFilter extends FilterIterator {
     protected $filter = array();
     protected $errors = array();
 
+    /**
+     * 
+     * @param CSVIterator $iterator
+     */
     public function __construct(CSVIterator $iterator) {
         parent::__construct($iterator);
     }
 
+    /**
+     * Add Filter to each colum of the CSV file
+     * @param int $index
+     * @param Callable $callable
+     */
     public function addFilter($index, Callable $callable) {
         $this->filter[$index] = $callable;
         $this->errors[$callable] = 0;
@@ -26,6 +35,11 @@ class CSVFilter extends FilterIterator {
         return $this->errors;
     }
 
+    /**
+     * FilterIterator::accept — Check whether the current element of the iterator is acceptable
+     * @see FilterIterator::accept()
+     * @link http://php.net/manual/en/filteriterator.accept.php
+     */
     public function accept() {
         $line = $this->getInnerIterator()->current();
         $x = true;

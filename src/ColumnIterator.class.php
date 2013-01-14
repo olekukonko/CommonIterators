@@ -1,14 +1,14 @@
 <?php
 
 namespace Run;
-
 use MultipleIterator, ArrayIterator, Traversable;
 
 
 /**
  *
  * @author Oleku
- *
+ * @link http://stackoverflow.com/a/14263157/1226894
+ * 
  */
 class ColumnIterator extends MultipleIterator {
 	function __construct(Traversable $multi, $flags = null) {

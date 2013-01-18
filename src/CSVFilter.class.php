@@ -31,6 +31,10 @@ class CSVFilter extends FilterIterator {
         $this->errors[$callable] = 0;
     }
 
+    /**
+     * Get Errors 
+     * @return multitype:
+     */
     public function getErrors() {
         return $this->errors;
     }

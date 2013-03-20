@@ -12,7 +12,7 @@ class SortableIterator extends ArrayIterator {
 	 * @param mixed $callback        	
 	 * @throws InvalidArgumentException
 	 */
-	public function __construct(Traversable $iterator, $callback) {
+	public function __construct(\Traversable $iterator, $callback) {
 		if (! is_callable($callback)) {
 			throw new InvalidArgumentException(sprintf('Callback must be callable (%s given).', $callback));
 		}

@@ -1,6 +1,6 @@
 <?php
 
-namespace Run;
+namespace Run\Sortable;
 
 use IteratorAggregate;
 
@@ -10,7 +10,7 @@ use IteratorAggregate;
  * @author Oleku
  *
  */
-class SortableFileIterator implements IteratorAggregate
+class FileIterator implements IteratorAggregate
 {
     const SORT_BY_NAME = 1;
     const SORT_BY_TYPE = 2;

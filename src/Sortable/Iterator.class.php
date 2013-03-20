@@ -1,10 +1,10 @@
 <?php
 
-namespace Run;
+namespace Run\Sortable;
 
 use ArrayIterator, InvalidArgumentException;
 
-class SortableIterator extends ArrayIterator {
+class Iterator extends ArrayIterator {
 
 	/**
 	 *

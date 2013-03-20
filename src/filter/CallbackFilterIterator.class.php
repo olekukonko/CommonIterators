@@ -7,7 +7,7 @@ namespace run\filter;
  * @author Oleku
  *        
  */
-class CallbackIterator extends \FilterIterator {
+class CallbackFilterIterator extends \FilterIterator {
 	private $filters = array();
 
 	/**

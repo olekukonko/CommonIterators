@@ -1,6 +1,6 @@
 <?php
 
-namespace src;
+namespace run;
 
 use SplHeap , InvalidArgumentException;
 

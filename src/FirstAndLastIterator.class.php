@@ -1,7 +1,7 @@
 <?php
 
-namespace Run;
-use CachingIterator ;
+namespace run;
+use CachingIterator , Iterator ;
 /**
  * Iterator that iterates over the first and last element of
  * an Iterator

@@ -1,6 +1,6 @@
 <?php
 
-namespace Run;
+namespace run;
 use Countable, Iterator;
 
 /**

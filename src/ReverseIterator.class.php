@@ -1,15 +1,14 @@
 <?php
 
-namespace Run;
-
-use ArrayIterator, Iterator;
+namespace run;
 
 /**
  *
  * @author Oleku
  *        
  */
-class ReverseIterator extends ArrayIterator {
+class ReverseIterator extends \ArrayIterator {
+
 	/**
 	 *
 	 * @param mixed $it        	

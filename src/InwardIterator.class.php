@@ -1,14 +1,12 @@
 <?php
 
-namespace Run;
+namespace run;
 
-use MultipleIterator, ArrayIterator, IteratorAggregate;
-
-class InwardIterator implements IteratorAggregate {
+class InwardIterator implements \IteratorAggregate {
 	private $position = 0;
 	private $list;
 
-	public function __construct($array , $id, $parentID) {
+	public function __construct($array, $id, $parentID) {
 		$this->position = 0;
 	}
 

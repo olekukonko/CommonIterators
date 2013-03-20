@@ -1,15 +1,13 @@
 <?php
 
-namespace Run;
-
-use IteratorIterator;
+namespace run;
 
 /**
  *
  * @author Oleku
  *        
  */
-class NoRewindLimitIterator extends IteratorIterator {
+class NoRewindLimitIterator extends \IteratorIterator {
 	private $start, $count, $next;
 
 	/**
@@ -18,7 +16,7 @@ class NoRewindLimitIterator extends IteratorIterator {
 	 * @param int $start        	
 	 * @param int $count        	
 	 */
-	public function __construct(Iterator $it, $start, $count) {
+	public function __construct(\Iterator $it, $start, $count) {
 		parent::__construct($it);
 		$this->start = max(0, $start);
 		$this->count = max(0, $count);

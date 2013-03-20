@@ -1,8 +1,8 @@
 <?php
 
-namespace Run;
+namespace Run\File;
 
-use Iterator, RuntimeException , InvalidArgumentException;
+use Iterator, RuntimeException, InvalidArgumentException;
 
 /**
  *
@@ -10,6 +10,11 @@ use Iterator, RuntimeException , InvalidArgumentException;
  *        
  */
 class CSVIterator implements Iterator {
+	protected $filename;
+	protected $length;
+	protected $delimiter;
+	protected $enclosure;
+	protected $escape;
 	protected $fileHandle;
 	protected $line;
 	protected $i;
@@ -19,12 +24,18 @@ class CSVIterator implements Iterator {
 	 * @param string $fileName        	
 	 * @throws RuntimeException
 	 */
-	public function __construct($fileName) {
-		if (! is_file($fileName))
-			throw new InvalidArgumentException(sprintf("Can't open file %s", $fileName));
+	public function __construct($fileName, $length = 0, $delimiter = ",", $enclosure = '"', $escape = '\\') {
+		$this->filename = realpath((string) $fileName);
+		$this->length = (int) $length;
+		$this->delimiter = (string) $delimiter;
+		$this->enclosure = (string) $enclosure;
+		$this->escape = (string) $escape;
 		
-		if (! $this->fileHandle = fopen($fileName, 'r')) {
-			throw new RuntimeException('Couldn\'t open file "' . $fileName . '"');
+		if (! is_file($this->filename))
+			throw new InvalidArgumentException(sprintf("Can't open file %s", $this->filename));
+		
+		if (! $this->fileHandle = fopen($this->filename, 'r')) {
+			throw new RuntimeException('Couldn\'t open file "' . $this->filename . '"');
 		}
 	}
 
@@ -77,7 +88,7 @@ class CSVIterator implements Iterator {
 	 */
 	public function next() {
 		if (false !== $this->line) {
-			$this->line = fgetcsv($this->fileHandle);
+			$this->line = fgetcsv($this->fileHandle, $this->length, $this->delimiter, $this->enclosure, $this->escape);
 			$this->i ++;
 		}
 	}
